@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+  <style>
+    body {
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+    input, button {
+      padding: 14px;
+      font-size: 18px;
+      margin: 10px auto;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      background-color: #000;
+      color: #00ff00;
+      display: block;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    input::placeholder {
+      color: #00ff00;
+      opacity: 0.6;
+    }
+
+    #progressContainer {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      height: 20px;
+      background-color: #003300;
+      border-radius: 10px;
+      border: 1px solid #00ff00;
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 0%;
+      background-color: #00ff00;
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+
+    a {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #33ff33;
+    }
+
+    #question::after {
+      content: "_";
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    #breakMessage {
+      display: none;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="face">^ - ^</h1>
+  <p id="question"></p>
+  
+  <input type="text" id="answerBox" placeholder="Type your answer here" />
+  <button onclick="checkAnswer()">Submit</button>
+  
+  <p id="result"></p>
+
+  <!-- Break Message UI -->
+  <div id="breakMessage">
+    <p id="customMessage">test</p>
+    <button onclick="resumeQuiz()">Continue</button>
+  </div>
+
+  ...
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+  
+  <!-- Link to external JavaScript -->
+  <script src="script.js"></script>
+  </body>
+  </html>
+  
